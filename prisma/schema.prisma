@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model ModelTest {
+model Foo {
   id        String    @id @default(uuid())
   field     String
   createdAt DateTime  @default(now())

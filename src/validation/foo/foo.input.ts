@@ -3,20 +3,20 @@ import { IsOptional, IsString } from 'class-validator';
 import { ListInput } from '../list.input';
 
 @InputType()
-export class ModelTestListInput extends ListInput {
+export class FooListInput extends ListInput {
   @IsOptional()
   @Field({nullable: true})
   field?: string;
 }
 
 @InputType()
-export class ModelTestSearchInput {
+export class FooSearchInput {
   @Field(type => ID)
   id: string;
 }
 
 @InputType()
-export class ModelTestCreateInput {
+export class FooCreateInput {
   @IsString()
   @Field(type => ID)
   field: string;

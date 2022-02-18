@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import {ModelTest} from '@prisma/client'
-import { ModelTestCreateInput, ModelTestListInput, ModelTestSearchInput } from '../validation/model-test/model-test.input';
+import {Foo} from '@prisma/client'
+import { FooCreateInput, FooListInput, FooSearchInput } from '../validation/foo/foo.input';
 import { PrismaService } from './prisma.service';
 
 @Injectable()
@@ -10,25 +10,25 @@ export class ModuleTestService {
   ) { }
 
   getById(
-    body: ModelTestSearchInput
-  ): Promise<ModelTest> {
-    return this.prisma.modelTest.findFirst({
+    body: FooSearchInput
+  ): Promise<Foo> {
+    return this.prisma.foo.findFirst({
       where: {id: body.id}
     })
   }
 
   list(
-    body: ModelTestListInput
-  ): Promise<ModelTest[]> {
+    body: FooListInput
+  ): Promise<Foo[]> {
     const {field} = body
-    return this.prisma.modelTest.findMany({
+    return this.prisma.foo.findMany({
       ...(field && {where: {field}})
     })
   }
 
   create(
-    data: ModelTestCreateInput
-  ): Promise<ModelTest> {
-    return this.prisma.modelTest.create({data})
+    data: FooCreateInput
+  ): Promise<Foo> {
+    return this.prisma.foo.create({data})
   }
 }

@@ -1,9 +1,9 @@
 import { ObjectType } from "@nestjs/graphql";
-import { ModelTest } from "../model";
+import { Foo } from "../model";
 import { ApiResponseData, ApiResponseDataList } from "../util/api-response.util";
 
 @ObjectType()
-export class ModelTestResponse extends ApiResponseData(ModelTest) {}
+export class FooResponse extends ApiResponseData(Foo) {}
 
 @ObjectType()
-export class ModelTestListResponse extends ApiResponseDataList([ModelTest]) {}
+export class FooListResponse extends ApiResponseDataList([Foo]) {}

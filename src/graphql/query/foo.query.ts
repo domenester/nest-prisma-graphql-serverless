@@ -1,27 +1,27 @@
 import { Args, Resolver, Query } from '@nestjs/graphql';
-import { ModelTest } from '../../model';
+import { Foo } from '../../model';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/strategies/jwt-auth.guard';
 import { ValidationPipe } from '../../pipes/validation.pipe';
-import { ModelTestResponse, ModelTestListResponse } from '../resolver-response';
-import { ModelTestListInput, ModelTestSearchInput } from '../../validation/model-test/model-test.input';
+import { FooResponse, FooListResponse } from '../resolver-response';
+import { FooListInput, FooSearchInput } from '../../validation/foo/foo.input';
 import { ModuleTestService } from '../../service/module-test.service';
 
-@Resolver(of => ModelTest)
-export class ModelTestQuery {
+@Resolver(of => Foo)
+export class FooQuery {
   constructor(
     private readonly service: ModuleTestService
   ) {}
 
   @UseGuards(JwtAuthGuard)
-  @Query(returns => ModelTestListResponse)
-  async listModelTest(
+  @Query(returns => FooListResponse)
+  async listFoo(
     @Args({
       name: 'body',
-      type: () => ModelTestListInput,
+      type: () => FooListInput,
       nullable: true
-    }, new ValidationPipe()) body: ModelTestListInput
-  ): Promise<ModelTestListResponse> {
+    }, new ValidationPipe()) body: FooListInput
+  ): Promise<FooListResponse> {
     const modetTestList = await this.service.list(body)
     return {
       data: modetTestList,
@@ -30,14 +30,14 @@ export class ModelTestQuery {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Query(returns => ModelTestResponse)
-  async searchModelTest(
+  @Query(returns => FooResponse)
+  async searchFoo(
     @Args({
       name: 'body',
-      type: () => ModelTestSearchInput,
+      type: () => FooSearchInput,
       nullable: true
-    }, new ValidationPipe()) body: ModelTestSearchInput
-  ): Promise<ModelTestResponse> {
+    }, new ValidationPipe()) body: FooSearchInput
+  ): Promise<FooResponse> {
     const modetTest = await this.service.getById(body)
     return {
       data: modetTest,

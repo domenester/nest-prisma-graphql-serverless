@@ -3,7 +3,7 @@ import { ConfigModuleForRoot } from './config/module.config';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { ModuleTestModule } from './module/module-test.module';
+import { FooModule } from './module/foo.module';
 import { jwtConstants } from './auth/constants';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './auth/strategies/jwt.strategy';
@@ -31,7 +31,7 @@ const {NODE_ENV} = process.env
     JwtModule.register({
       secret: jwtConstants.secret,
     }),
-    ModuleTestModule
+    FooModule
   ],
   providers: [
     JwtStrategy

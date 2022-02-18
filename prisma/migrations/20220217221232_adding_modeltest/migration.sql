@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `ModelTest` (
+CREATE TABLE `Foo` (
     `id` VARCHAR(191) NOT NULL,
     `field` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),

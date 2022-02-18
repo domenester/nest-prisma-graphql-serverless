@@ -1,16 +1,16 @@
 import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
-import { ModelTest } from '../../model';
+import { Foo } from '../../model';
 
-@Resolver(of => ModelTest)
-export class ModelTestResolver {
+@Resolver(of => Foo)
+export class FooResolver {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
   @ResolveField()
   field(
-    @Parent() modelTest: ModelTest
+    @Parent() foo: Foo
   ) {
-    const {field} = modelTest
+    const {field} = foo
     return field ? field : 'Field with no value'
   }
 }
