@@ -16,11 +16,11 @@ const {NODE_ENV} = process.env
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: false,
       debug: true,
+      playground: true,
       ...(NODE_ENV === 'production' && {
         typePaths: ['/var/task/src/schema.gql'],
       }),
       ...(NODE_ENV !== 'production' && {
-        playground: true,
         autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       }),
       cors: {

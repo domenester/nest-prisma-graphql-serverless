@@ -1,16 +1,25 @@
-service:
-  name: nest-prisma-graphql-serverless
-
+service: nest-prisma-graphql-serverless
 custom:
   webpack:
+    packagerOptions:
+      scripts:
+        - prisma generate
     webpackConfig: ./webpack.config.js
     includeModules:
       forceInclude:
         - apollo-server-core
         - apollo-server-express
 
+package:
+  patterns:
+    - '!node_modules/.prisma/client/libquery_engine-*'
+    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
+    - '!node_modules/prisma/libquery_engine-*'
+    - '!node_modules/@prisma/engines/**'
+
 plugins:
   - serverless-webpack
+  - serverless-webpack-prisma
   - serverless-offline
 
 provider:

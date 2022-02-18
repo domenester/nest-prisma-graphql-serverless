@@ -9,8 +9,10 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "/home/diogo/Projetos/bem.care/services/billing/",
+    "paths": {
+      "@billing/*": [ "/home/diogo/Projetos/bem.care/services/billing/*" ]
+    }
   }
 }

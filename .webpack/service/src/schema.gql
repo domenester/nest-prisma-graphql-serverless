@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Foo {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  field: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type FooResponse {
+  message: String
+  data: Foo
+}
+
+type FooListResponse {
+  message: String
+  data: [Foo!]
+}
+
+type Query {
+  listFoo(body: FooListInput): FooListResponse!
+  searchFoo(body: FooSearchInput): FooResponse!
+}
+
+input FooListInput {
+  take: Float
+  skip: Float
+  field: String
+}
+
+input FooSearchInput {
+  id: ID!
+}
+
+type Mutation {
+  createFoo(body: FooCreateInput!): FooResponse!
+}
+
+input FooCreateInput {
+  field: ID!
+}
