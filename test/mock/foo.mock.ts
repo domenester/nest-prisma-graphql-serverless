@@ -10,3 +10,16 @@ export const listFooMutation = (body: any = {}) => {
       }
     }`;
 }
+
+export const createFooMutation = (body: any = {}) => {
+  return `
+    mutation {
+      createFoo(body: ${formatBody(body)}) {
+        message
+        data {
+          id
+          field
+        }
+      }
+    }`;
+}
