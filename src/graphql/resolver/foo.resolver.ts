@@ -1,7 +1,7 @@
 import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Foo } from '../../model';
 
-@Resolver(of => Foo)
+@Resolver(() => Foo)
 export class FooResolver {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}

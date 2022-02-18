@@ -11,13 +11,13 @@ export class FooListInput extends ListInput {
 
 @InputType()
 export class FooSearchInput {
-  @Field(type => ID)
+  @Field(() => ID)
   id: string;
 }
 
 @InputType()
 export class FooCreateInput {
   @IsString()
-  @Field(type => ID)
+  @Field(() => ID)
   field: string;
 }

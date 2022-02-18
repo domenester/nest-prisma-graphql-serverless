@@ -1,12 +1,12 @@
-import { UnauthorizedException } from "@nestjs/common";
+// import { UnauthorizedException } from "@nestjs/common";
 
-const parseIp = (req) =>
-    req.headers['x-forwarded-for']?.split(',').shift()
-    || req.socket?.remoteAddress
+// const parseIp = (req) =>
+//     req.headers['x-forwarded-for']?.split(',').shift()
+//     || req.socket?.remoteAddress
 
 const cors = (req, res, next) => {
   const {NODE_ENV} = process.env
-  const allowedOrigins = [];
+  // const allowedOrigins = [];
 
   if (NODE_ENV === 'production') {
     const origin = req.headers.origin;

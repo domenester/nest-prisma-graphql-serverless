@@ -7,14 +7,14 @@ import { FooResponse, FooListResponse } from '../resolver-response';
 import { FooListInput, FooSearchInput } from '../../validation/foo/foo.input';
 import { ModuleTestService } from '../../service/module-test.service';
 
-@Resolver(of => Foo)
+@Resolver(() => Foo)
 export class FooQuery {
   constructor(
     private readonly service: ModuleTestService
   ) {}
 
   @UseGuards(JwtAuthGuard)
-  @Query(returns => FooListResponse)
+  @Query(() => FooListResponse)
   async listFoo(
     @Args({
       name: 'body',
@@ -30,7 +30,7 @@ export class FooQuery {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Query(returns => FooResponse)
+  @Query(() => FooResponse)
   async searchFoo(
     @Args({
       name: 'body',

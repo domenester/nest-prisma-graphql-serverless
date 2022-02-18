@@ -2,15 +2,15 @@ import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Base {
-  @Field(type => ID)
+  @Field(() => ID)
   id: string;
 
-  @Field(type => GraphQLISODateTime)
+  @Field(() => GraphQLISODateTime)
   createdAt: Date;
 
-  @Field(type => GraphQLISODateTime)
+  @Field(() => GraphQLISODateTime)
   updatedAt: Date;
 
-  @Field(type => GraphQLISODateTime)
+  @Field(() => GraphQLISODateTime)
   deletedAt?: Date
 }

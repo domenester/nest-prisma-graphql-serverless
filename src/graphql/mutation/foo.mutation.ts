@@ -7,14 +7,14 @@ import { FooResponse } from '../resolver-response';
 import { FooCreateInput } from '../../validation/foo/foo.input';
 import { ModuleTestService } from '../../service/module-test.service';
 
-@Resolver(of => Foo)
+@Resolver(() => Foo)
 export class FooMutation {
   constructor(
     private service: ModuleTestService
   ) {}
 
   @UseGuards(JwtAuthGuard)
-  @Mutation(returns => FooResponse)
+  @Mutation(() => FooResponse)
   async createFoo(
     @Args('body', new ValidationPipe()) body: FooCreateInput
   ): Promise<FooResponse> {

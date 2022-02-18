@@ -17,7 +17,7 @@ export function ApiResponseData<T>(classRef: Type<T>): Type<IApiResponseDataType
     @Field({nullable: true})
     message: string
     @Field(
-      type => classRef,
+      () => classRef,
       {nullable: true}
     )
     data: T
@@ -31,7 +31,7 @@ export function ApiResponseDataList<T>(classRef: [Type<T>]): Type<IApiResponseDa
     @Field({nullable: true})
     message: string
     @Field(
-      type => classRef,
+      () => classRef,
       {nullable: true}
     )
     data: T[]
