@@ -20,7 +20,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "deploy:serverless": "npm run test && npm run build && sls deploy"
+    "deploy:serverless": "npm run test && npm run build && sls deploy",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nestjs/apollo": "^10.0.3",
@@ -61,6 +62,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "fork-ts-checker-webpack-plugin": "^7.2.1",
+    "husky": "^7.0.4",
     "jest": "27.0.6",
     "prettier": "^2.3.2",
     "prisma": "^3.9.2",
